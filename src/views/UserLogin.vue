@@ -1,20 +1,19 @@
 <template>
-  <div class="login-container">
-    <h1>Вход</h1>
-    <form @submit.prevent="login" class="login-form">
-      <div class="form-field">
+  <div class="custom-login-container">
+    <h1>Hello</h1>
+    <form @submit.prevent="login" class="custom-login-form">
+      <div class="custom-form-field">
         <label for="email">Email:</label>
         <input id="email" v-model="form.email" type="email" required>
       </div>
-      <div class="form-field">
-        <label for="password">Пароль:</label>
+      <div class="custom-form-field">
+        <label for="password">Password:</label>
         <input id="password" v-model="form.password" type="password" required>
       </div>
-      <button type="submit" class="submit-btn">Войти</button>
+      <button type="submit" class="custom-submit-btn">Login</button>
     </form>
   </div>
 </template>
-
 <script>
 import authService from '@/services/auth.service';
 
@@ -50,51 +49,57 @@ export default {
 </script>
 
 <style scoped>
-
-</style>
-<style scoped>
-.login-container {
+.custom-login-container {
   max-width: 400px;
   margin: auto;
-  padding: 20px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 40px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #ffffff;
 }
 
-.login-form {
+.custom-login-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 24px;
+  margin-top: 24px;
 }
 
-.form-field {
+.custom-form-field {
   display: flex;
   flex-direction: column;
+  color: #ffffff;
 }
 
 label {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
 input[type="email"],
 input[type="password"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
-.submit-btn {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
+.custom-submit-btn {
+  padding: 14px 24px;
+  background-color: #fca311;
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 16px;
 }
 
-.submit-btn:hover {
-  background-color: #45a049;
+.custom-submit-btn:hover {
+  background-color: #e0aaff;
 }
 </style>

@@ -1,23 +1,24 @@
 <template>
   <div class="registration-container">
-    <h1>Регистрация</h1>
+    <h1>Register Your Account</h1>
     <form @submit.prevent="registerUser" class="registration-form">
       <div class="form-field">
-        <label for="name">Имя:</label>
-        <input id="name" v-model="name" type="text" required>
+        <input id="name" v-model="name" type="text" required placeholder="Your Name">
+        <label for="name">Name</label>
       </div>
       <div class="form-field">
-        <label for="email">Email:</label>
-        <input id="email" v-model="email" type="email" required>
+        <input id="email" v-model="email" type="email" required placeholder="Email Address">
+        <label for="email">Email</label>
       </div>
       <div class="form-field">
-        <label for="password">Пароль:</label>
-        <input id="password" v-model="password" type="password" required>
+        <input id="password" v-model="password" type="password" required placeholder="Password">
+        <label for="password">Password</label>
       </div>
-      <button type="submit" class="submit-btn">Зарегистрироваться</button>
+      <button type="submit" class="submit-btn">Create Account</button>
     </form>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -53,47 +54,69 @@ export default {
 <style>
 .registration-container {
   max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 40px auto;
+  padding: 40px;
+  background: #f3f4f6; 
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
 .registration-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .form-field {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 5px;
+  position: relative;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px;
+  border: 2px solid #cccccc; 
+  border-radius: 8px;
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #4CAF50;
+}
+
+label {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  transition: all 0.3s;
+  color: #666666;
+}
+
+input:valid + label,
+input:focus + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #4CAF50;
 }
 
 .submit-btn {
-  padding: 10px;
+  padding: 15px 30px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .submit-btn:hover {
   background-color: #45a049;
+  transform: translateY(-2px); 
 }
+
 </style>
