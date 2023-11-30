@@ -1,20 +1,21 @@
 <template>
-  <div class="login-container">
-    <h1 class="login-title">Вход в Систему</h1>
-    <form @submit.prevent="login" class="login-form">
-      <div class="input-group">
+  <div class="login-interface">
+    <h1 class="login-heading">Вход</h1>
+    <form @submit.prevent="login" class="login-form-style">
+      <div class="field-container">
         <label for="email">Email</label>
-        <input id="email" v-model="form.email" type="email" required>
+        <input id="email" v-model="form.email" type="email" required class="input-style">
       </div>
-      <div class="input-group">
+      <div class="field-container">
         <label for="password">Пароль</label>
-        <input id="password" v-model="form.password" type="password" required>
+        <input id="password" v-model="form.password" type="password" required class="input-style">
       </div>
-      <button type="submit" class="login-btn">Войти</button>
+      <button type="submit" class="submit-button">Войти</button>
     </form>
-    <button @click="goToRegistration" class="register-btn">Регистрация</button>
+    <button @click="goToRegistration" class="registration-button">Нет аккаунта? Регистрация</button>
   </div>
 </template>
+
 
 
 <script>
@@ -54,75 +55,73 @@ export default {
 </script>
 
 <style scoped>
-.login-container {
-  max-width: 350px;
-  margin: auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+.login-interface {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.login-title {
-  margin-bottom: 25px;
-  color: #333333;
-  font-size: 22px;
+.login-heading {
+  color: #424242;
+  font-size: 24px;
+  margin-bottom: 30px;
 }
 
-.login-form {
+.login-form-style {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.input-group {
+.field-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-.input-group label {
-  margin-bottom: 5px;
-  font-size: 14px;
-  color: #555555;
+.label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
 }
 
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  font-size: 14px;
+.input-style {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
 }
 
-.login-btn {
-  padding: 12px 0;
-  background-color: #007bff;
+.submit-button {
+  padding: 12px 20px;
+  background-color: #00897b;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.login-btn:hover {
-  background-color: #0056b3;
+.submit-button:hover {
+  background-color: #00695c;
 }
 
-.register-btn {
-  margin-top: 15px;
-  background: none;
-  color: #007bff;
-  border: 1px solid #007bff;
-  border-radius: 8px;
-  padding: 8px 0;
+.registration-button {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #00897b;
+  border: 2px solid #00897b;
+  border-radius: 10px;
+  padding: 8px 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.register-btn:hover {
-  background-color: #007bff;
+.registration-button:hover {
+  background-color: #00897b;
   color: white;
 }
 </style>

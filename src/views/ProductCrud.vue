@@ -1,25 +1,27 @@
 <template>
-  <div class="product-admin-dashboard">
-    <h1 class="dashboard-heading">Управление Продуктами</h1>
-    <div v-if="isAdmin" class="add-product-area">
-      <input type="text" v-model="newProduct.name" placeholder="Название продукта" class="product-input">
-      <input type="number" v-model="newProduct.quantity" placeholder="Количество" class="product-input">
-      <input type="number" v-model="newProduct.price" placeholder="Цена" class="product-input">
-      <select v-model="newProduct.category_id" class="product-select">
+  <div class="product-dashboard">
+    <h1 class="dashboard-title">Управление Продуктами</h1>
+    <div v-if="isAdmin" class="add-product-form">
+      <input type="text" v-model="newProduct.name" placeholder="Название продукта" class="input-field">
+      <input type="number" v-model="newProduct.quantity" placeholder="Количество" class="input-field">
+      <input type="number" v-model="newProduct.price" placeholder="Цена" class="input-field">
+      <select v-model="newProduct.category_id" class="select-field">
         <option v-for="category in categories" :value="category.id" :key="category.id">{{ category.name }}</option>
       </select>
-      <button @click="addProduct" class="btn add-product-btn">Добавить Продукт</button>
+      <button @click="addProduct" class="add-btn">Добавить Продукт</button>
     </div>
-    <div class="products-list">
-      <div v-for="product in products" :key="product.id" class="product-item">
-        <div class="product-info">
-          <span>{{ product.name }} - {{ product.quantity }} - ${{ product.price }}</span>
-          <div v-if="isAdmin" class="product-options">
-            <button @click="startEditProduct(product)" class="btn edit-btn">Редактировать</button>
-            <button @click="deleteProduct(product.id)" class="btn delete-btn">Удалить</button>
+    <div class="product-list">
+      <div v-for="product in products" :key="product.id" class="product-card">
+        <div class="card-content">
+          <h3>{{ product.name }}</h3>
+          <p>Количество: {{ product.quantity }}</p>
+          <p>Цена: ${{ product.price }}</p>
+          <div v-if="isAdmin" class="card-actions">
+            <button @click="startEditProduct(product)" class="edit-btn">Редактировать</button>
+            <button @click="deleteProduct(product.id)" class="delete-btn">Удалить</button>
           </div>
         </div>
-        <div v-if="selectedProduct === product.id" class="product-edit-form">
+        <div v-if="selectedProduct === product.id" class="edit-form">
           <input type="text" v-model="selectedProduct.name" class="product-input">
           <input type="number" v-model="selectedProduct.quantity" class="product-input">
           <input type="number" v-model="selectedProduct.price" class="product-input">
@@ -136,76 +138,94 @@
   },
   };
   </script>
-  <style>
-  .product-admin-dashboard {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+<style scoped>
+.product-dashboard {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #eceff1;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-title {
+  color: #263238;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-product-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input-field, .select-field {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b0bec5;
+  flex: 1 1 200px;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  color: #3949ab;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-btn { background-color: #ff9800; }
+.delete-btn { background-color: #f44336; }
+
+@media (max-width: 600px) {
+  .add-product-form, .product-list {
+    flex-direction: column;
   }
-  
-  .dashboard-heading {
-    text-align: center;
-    color: #424242;
-    font-size: 28px;
-    margin-bottom: 30px;
+  .input-field, .select-field {
+    flex-basis: 100%;
   }
-  
-  .add-product-area {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .product-input, .product-select {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #cfd8dc;
-    flex: 1 1 200px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: white;
-  }
-  
-  .add-product-btn { background-color: #4caf50; }
-  .edit-btn { background-color: #ff9800; }
-  .delete-btn { background-color: #f44336; }
-  .save-btn { background-color: #4caf50; }
-  .cancel-btn { background-color: #78909c; }
-  
-  .products-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .product-item {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .product-info {
-    margin-bottom: 10px;
-  }
-  
-  .product-options {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-  </style>
+}
+</style>
+
   
   

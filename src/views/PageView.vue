@@ -1,17 +1,14 @@
 <template>
-  <div class="admin-dashboard">
-    <h1 class="dashboard-title">Admin Dashboard</h1>
-    <div class="dashboard-menu">
-      <div @click="goToPage('/category')" class="menu-card">Category</div>
-      <div @click="goToPage('/adminproduct')" class="menu-card">Product</div>
-      <div @click="goToPage('/adminclient')" class="menu-card">Client</div>
-      <div @click="goToPage('/adminorder')" class="menu-card">Order</div>
+  <div class="admin-panel">
+    <h1 class="panel-title">Админ Панель</h1>
+    <div class="navigation-cards">
+      <div @click="goToPage('/category')" class="navigation-card">Категории</div>
+      <div @click="goToPage('/adminproduct')" class="navigation-card">Продукты</div>
+      <div @click="goToPage('/adminclient')" class="navigation-card">Клиенты</div>
+      <div @click="goToPage('/adminorder')" class="navigation-card">Заказы</div>
     </div>
   </div>
 </template>
-
-
-
 
 <script>
 export default {
@@ -24,44 +21,42 @@ export default {
 </script>
 
 <style>
-.admin-dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: #f5f5f5;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.admin-panel {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.dashboard-title {
-  color: #333;
-  font-size: 26px;
-  margin-bottom: 30px;
+.panel-title {
+  color: #2e3c48;
+  font-size: 28px;
+  margin-bottom: 40px;
 }
 
-.dashboard-menu {
+.navigation-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  width: 100%;
 }
 
-.menu-card {
+.navigation-card {
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background-color: #e0f7fa;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
-.menu-card:hover {
-  background-color: #e9ecef;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+.navigation-card:hover {
+  background-color: #b2ebf2;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 </style>
-
 
 

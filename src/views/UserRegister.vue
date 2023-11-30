@@ -1,20 +1,20 @@
 <template>
-  <div class="registration-page">
-    <h1 class="registration-title">Регистрация</h1>
+  <div class="registration-section">
+    <h1 class="section-title">Регистрация</h1>
     <form @submit.prevent="registerUser" class="registration-form">
-      <div class="input-group">
+      <div class="form-field">
         <label for="name">Имя:</label>
-        <input id="name" v-model="name" type="text" required class="input-field">
+        <input id="name" v-model="name" type="text" required class="form-input">
       </div>
-      <div class="input-group">
+      <div class="form-field">
         <label for="email">Email:</label>
-        <input id="email" v-model="email" type="email" required class="input-field">
+        <input id="email" v-model="email" type="email" required class="form-input">
       </div>
-      <div class="input-group">
+      <div class="form-field">
         <label for="password">Пароль:</label>
-        <input id="password" v-model="password" type="password" required class="input-field">
+        <input id="password" v-model="password" type="password" required class="form-input">
       </div>
-      <button type="submit" class="register-btn">Зарегистрироваться</button>
+      <button type="submit" class="submit-btn">Зарегистрироваться</button>
     </form>
   </div>
 </template>
@@ -52,58 +52,62 @@ export default {
 </script>
 
 <style>
-.registration-page {
-  max-width: 500px;
-  margin: auto;
-  padding: 40px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.registration-section {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(to right, #6dd5ed, #2196f3);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
-.registration-title {
+.section-title {
   text-align: center;
-  color: #333;
-  font-size: 26px;
-  margin-bottom: 30px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 .registration-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-.input-group {
+.form-field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .label {
   margin-bottom: 5px;
-  font-size: 14px;
-  color: #555;
 }
 
-.input-field {
+.form-input {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #fff;
   border-radius: 8px;
-  background-color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
 }
 
-.register-btn {
+.form-input:focus {
+  background-color: #fff;
+  color: #333;
+}
+
+.submit-btn {
   padding: 15px;
-  background-color: #4caf50;
-  color: white;
+  background-color: #fff;
+  color: #2196f3;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.register-btn:hover {
-  background-color: #388e3c;
+.submit-btn:hover {
+  background-color: #f8f9fa;
+  color: #0d47a1;
 }
 </style>
