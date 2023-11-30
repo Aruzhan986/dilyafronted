@@ -1,32 +1,29 @@
 <template>
-  <div class="orders-container">
-    <h1>Orders Overview</h1>
-    <div class="table-container">
-      <table class="order-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Client</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="order in orders" :key="order.order_id">
-            <td>{{ order.order_id }}</td>
-            <td>{{ order.order_date }}</td>
-            <td>{{ order.client.client_name }}</td>
-            <td>{{ order.product.product_name }}</td>
-            <td>{{ order.product.product_price }}</td>
-            <td>{{ order.product.category.category_name }}</td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="order-overview-container">
+    <h1 class="order-overview-title">Orders Overview</h1>
+    <div class="responsive-table">
+      <div class="table-header">
+        <div class="header-item">ID</div>
+        <div class="header-item">Date</div>
+        <div class="header-item">Client</div>
+        <div class="header-item">Product</div>
+        <div class="header-item">Price</div>
+        <div class="header-item">Category</div>
+      </div>
+      <div class="table-body">
+        <div class="table-row" v-for="order in orders" :key="order.order_id">
+          <div class="row-item">{{ order.order_id }}</div>
+          <div class="row-item">{{ order.order_date }}</div>
+          <div class="row-item">{{ order.client.client_name }}</div>
+          <div class="row-item">{{ order.product.product_name }}</div>
+          <div class="row-item">{{ order.product.product_price }}</div>
+          <div class="row-item">{{ order.product.category.category_name }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 
 
 <script>
@@ -53,66 +50,52 @@ export default {
 </script>
 
 <style>
-  .orders-container {
+.order-overview-container {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
-  background: #fff;
+  background: #e3f2fd;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.table-container {
-  overflow-x: auto; 
+.order-overview-title {
+  color: #1e88e5;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
 }
 
-.order-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.responsive-table {
+  display: block;
+  overflow-x: auto;
 }
 
-.order-table th,
-.order-table td {
-  border: 1px solid #dddddd;
-  padding: 15px;
-  text-align: left;
-  font-size: 14px;
+.table-header, .table-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
 }
 
-.order-table th {
-  background-color: #4CAF50;
+.header-item, .row-item {
+  padding: 10px;
+  border: 1px solid #90caf9;
+}
+
+.table-header .header-item {
+  background-color: #42a5f5;
   color: white;
-  font-size: 16px;
+  font-weight: bold;
 }
 
-.order-table tbody tr:nth-child(odd) {
-  background-color: #f2f2f2;
+.table-body .table-row:nth-child(odd) {
+  background-color: #e3f2fd;
 }
 
-
-@media screen and (max-width: 600px) {
-  .order-table th, 
-  .order-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .order-table th {
-    text-align: right;
-    padding-left: 50%;
-  }
-
-  .order-table td {
-    text-align: right;
-    padding-left: 50%;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-  }
-
-  .order-table td:first-child {
-    border-top: none;
+@media screen and (max-width: 768px) {
+  .table-header, .table-row {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
 </style>
+

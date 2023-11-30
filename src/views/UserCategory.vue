@@ -1,9 +1,9 @@
 <template>
-  <div class="category-container">
-    <h1>Explore Categories</h1>
-    <div class="category-grid">
+  <div class="categories-display-container">
+    <h1 class="categories-title">Страница пользователя</h1>
+    <div class="categories-grid">
       <div v-for="category in categories" :key="category.id" class="category-card">
-        <div class="category-name">{{ category.name }}</div>
+        <span class="category-name">{{ category.name }}</span>
       </div>
     </div>
   </div>
@@ -34,47 +34,46 @@
   </script>
   
   <style scoped>
-.category-container {
+.categories-display-container {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #f8f9fa; 
+  margin: auto;
+  padding: 30px;
+  background: #e3f2fd;
   border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.categories-title {
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  color: #343a40; 
+  color: #1e88e5;
   margin-bottom: 30px;
+  font-size: 24px;
 }
 
-.category-grid {
+.categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
-  padding: 0;
-  margin: 0;
 }
 
 .category-card {
-  background: #ffffff;
+  background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
   cursor: pointer;
-}
-
-.category-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: #495057;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.category-name {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+}
 </style>

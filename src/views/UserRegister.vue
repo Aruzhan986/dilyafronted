@@ -1,24 +1,23 @@
 <template>
   <div class="registration-container">
-    <h1>Register Your Account</h1>
+    <h1>Регистрация</h1>
     <form @submit.prevent="registerUser" class="registration-form">
       <div class="form-field">
-        <input id="name" v-model="name" type="text" required placeholder="Your Name">
-        <label for="name">Name</label>
+        <label for="name">Имя:</label>
+        <input id="name" v-model="name" type="text" required>
       </div>
       <div class="form-field">
-        <input id="email" v-model="email" type="email" required placeholder="Email Address">
-        <label for="email">Email</label>
+        <label for="email">Email:</label>
+        <input id="email" v-model="email" type="email" required>
       </div>
       <div class="form-field">
-        <input id="password" v-model="password" type="password" required placeholder="Password">
-        <label for="password">Password</label>
+        <label for="password">Пароль:</label>
+        <input id="password" v-model="password" type="password" required>
       </div>
-      <button type="submit" class="submit-btn">Create Account</button>
+      <button type="submit" class="submit-btn">Зарегистрироваться</button>
     </form>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -40,7 +39,7 @@ export default {
         .then(response => {
           
           localStorage.setItem('authToken', response.data.token); 
-          this.$router.push('/category'); 
+          this.$router.push('/usercategory'); 
         })
         .catch(error => {
           console.error(error);
@@ -55,11 +54,11 @@ export default {
 .registration-container {
   max-width: 400px;
   margin: 40px auto;
-  padding: 40px;
-  background: #f3f4f6; 
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  text-align: center;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
 .registration-form {
@@ -69,54 +68,46 @@ export default {
 }
 
 .form-field {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  padding: 15px;
-  border: 2px solid #cccccc; 
-  border-radius: 8px;
-  background: transparent;
-  transition: border-color 0.3s;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f8f9fa;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #4CAF50;
-}
-
-label {
-  position: absolute;
-  top: 12px;
-  left: 15px;
-  transition: all 0.3s;
-  color: #666666;
-}
-
-input:valid + label,
-input:focus + label {
-  top: -10px;
-  left: 10px;
-  font-size: 12px;
-  color: #4CAF50;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,.25);
 }
 
 .submit-btn {
-  padding: 15px 30px;
-  background-color: #4CAF50;
+  padding: 12px 20px;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-  background-color: #45a049;
-  transform: translateY(-2px); 
+  background-color: #0056b3;
 }
 
 </style>

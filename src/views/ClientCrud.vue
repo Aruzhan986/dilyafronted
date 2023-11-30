@@ -1,32 +1,31 @@
 <template>
-  <div class="custom-client-management">
-    <h1 class="custom-heading">Clients</h1>
-    <div v-if="isAdmin" class="custom-input-container">
-      <input type="text" v-model="newClient.firstName" placeholder="First Name" class="custom-input-field">
-      <input type="text" v-model="newClient.lastName" placeholder="Last Name" class="custom-input-field">
-      <button @click="addClient" class="custom-add-btn">Add Client</button>
+  <div class="client-management-container">
+    <h1 class="management-heading">Clients Dashboard</h1>
+    <div v-if="isAdmin" class="add-client-form">
+      <input type="text" v-model="newClient.firstName" placeholder="First Name" class="client-input">
+      <input type="text" v-model="newClient.lastName" placeholder="Last Name" class="client-input">
+      <button @click="addClient" class="action-btn add-btn">Add Client</button>
     </div>
-    <ul class="custom-client-list">
-      <li v-for="client in clients" :key="client.id" class="custom-client-item">
-        <div class="custom-client-info">
-          <span class="custom-client-name">{{ client.firstName }} {{ client.lastName }}</span>
-          <div v-if="isAdmin" class="custom-button-group">
-            <button @click="startEditClient(client)" class="custom-edit-btn">Edit</button>
-            <button @click="deleteClient(client.id)" class="custom-delete-btn">Delete</button>
+    <div class="client-list">
+      <div v-for="client in clients" :key="client.id" class="client-card">
+        <div class="client-info">
+          <h3>{{ client.firstName }} {{ client.lastName }}</h3>
+          <div v-if="isAdmin" class="client-actions">
+            <button @click="startEditClient(client)" class="action-btn edit-btn">Edit</button>
+            <button @click="deleteClient(client.id)" class="action-btn delete-btn">Delete</button>
           </div>
         </div>
-        <div v-if="selectedClient === client.id" class="custom-edit-container">
-          <input type="text" v-model="client.firstName" placeholder="First Name" class="custom-edit-input">
-          <input type="text" v-model="client.lastName" placeholder="Last Name" class="custom-edit-input">
-          <div class="custom-edit-btn-group">
-            <button @click="confirmEditClient(client.id)" class="custom-save-btn">Save Changes</button>
-            <button @click="cancelEditClient(client.id)" class="custom-cancel-btn">Cancel</button>
-          </div>
+        <div v-if="selectedClient === client.id" class="edit-client-form">
+          <input type="text" v-model="client.firstName" placeholder="First Name" class="client-input">
+          <input type="text" v-model="client.lastName" placeholder="Last Name" class="client-input">
+          <button @click="confirmEditClient(client.id)" class="action-btn save-btn">Save Changes</button>
+          <button @click="cancelEditClient(client.id)" class="action-btn cancel-btn">Cancel</button>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -111,100 +110,68 @@ export default {
 };
 </script>
 <style>
-.custom-client-management {
-  max-width: 600px;
+.client-management-container {
+  max-width: 800px;
   margin: auto;
-  padding: 40px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  padding: 30px;
+  background: #eef1f5;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.custom-heading {
-  margin-bottom: 20px;
-  color: #333333;
-  font-size: 24px;
+.management-heading {
+  color: #2c3e50;
+  font-size: 26px;
+  margin-bottom: 30px;
 }
 
-.custom-input-container, .custom-edit-container {
-  margin-bottom: 20px;
+.add-client-form, .edit-client-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.custom-input-field, .custom-edit-input {
-  padding: 12px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
+.client-input {
+  padding: 10px;
+  border: 2px solid #90a4ae;
   border-radius: 6px;
+  flex-grow: 1;
 }
 
-button {
-  padding: 12px 20px;
+.action-btn {
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s ease-out;
+  font-size: 14px;
+  transition: background-color 0.3s;
 }
 
-.custom-add-btn, .custom-save-btn {
-  background-color: #4CAF50;
-  color: white;
+.add-btn { background-color: #5cb85c; color: white; }
+.edit-btn { background-color: #5bc0de; color: white; }
+.delete-btn { background-color: #d9534f; color: white; }
+.save-btn { background-color: #5cb85c; color: white; }
+.cancel-btn { background-color: #f0ad4e; color: white; }
+
+.client-list {
+  display: grid;
+  gap: 20px;
 }
 
-.custom-edit-btn {
-  background-color: #ffc107;
-  color: black;
-}
-
-.custom-delete-btn {
-  background-color: #f44336;
-  color: white;
-}
-
-.custom-cancel-btn {
-  background-color: #9e9e9e;
-  color: black;
-}
-
-.custom-client-list {
-  list-style: none;
-  padding: 0;
-}
-
-.custom-client-item {
-  background: #ffffff;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 8px;
+.client-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.custom-client-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.client-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
 }
 
-.custom-client-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.custom-button-group {
+.client-actions {
   display: flex;
   gap: 10px;
-}
-
-.custom-edit-container {
-  margin-top: 10px;
-}
-
-.custom-edit-btn-group {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
 }
 </style>
