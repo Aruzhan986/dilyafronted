@@ -39,24 +39,24 @@ export default {
   max-width: 900px;
   margin: 50px auto;
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: #f3f3f3;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .overview-title {
-  color: #333;
-  font-size: 32px;
+  color: #2c3e50;
+  font-size: 36px;
   margin-bottom: 30px;
   text-transform: uppercase;
 }
 
 .category-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  justify-content: center;
 }
 
 .category-item {
@@ -65,8 +65,6 @@ export default {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: calc(33.33% - 20px); 
   text-align: center;
 }
 
@@ -78,7 +76,7 @@ export default {
 .category-name {
   font-size: 18px;
   color: #333;
-  font-weight: 600;
+  font-weight: bold;
   margin-top: 10px;
 }
 </style>

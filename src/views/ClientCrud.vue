@@ -25,7 +25,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -111,41 +110,32 @@ export default {
 </script>
 <style>
 .client-management-area {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 50px;
-  background-color: #f1f8e9;
-  border-radius: 25px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
 .management-header {
-  color: #2e7d32;
-  font-size: 28px;
-  margin-bottom: 35px;
+  color: #424242;
+  font-size: 24px;
+  margin-bottom: 25px;
 }
 
 .add-client-section {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .input-style {
-  padding: 12px;
-  border: 1px solid #c8e6c9;
-  border-radius: 8px;
-}
-
-.client-add-btn, .edit-client-btn, .delete-client-btn, .client-save-btn, .client-cancel-btn {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
-  transition: background-color 0.3s ease;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
 }
 
 .client-add-btn,
@@ -153,36 +143,31 @@ export default {
 .delete-client-btn,
 .client-save-btn,
 .client-cancel-btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
   color: white;
-  font-size: 16px;
-  margin: 5px;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.client-add-btn:hover {
-  background-color: #4caf50;
+.client-add-btn {
+  background-color: #1976d2;
 }
 
-.edit-client-btn:hover {
-  background-color: #2196f3;
+.edit-client-btn {
+  background-color: #d32f2f;
 }
 
-.delete-client-btn:hover {
-  background-color: #f44336;
+.delete-client-btn {
+  background-color: #388e3c;
 }
 
-.client-save-btn:hover {
-  background-color: #2e7d32;
+.client-save-btn {
+  background-color: #00796b;
 }
 
-.client-cancel-btn:hover {
-  background-color: #ffeb3b;
+.client-cancel-btn {
+  background-color: #f57c00;
 }
 </style>

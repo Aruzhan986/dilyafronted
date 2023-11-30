@@ -1,6 +1,6 @@
 <template>
   <div class="signup-page">
-    <h1 class="signup-title">Регистрация</h1>
+    <h1 class="signup-title">Данные</h1>
     <form @submit.prevent="registerUser" class="signup-form">
       <div class="input-group">
         <input id="name" v-model="name" type="text" required placeholder="Имя" class="input-field">
@@ -50,17 +50,17 @@ export default {
   max-width: 400px;
   margin: 50px auto;
   padding: 40px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #333333;
   text-align: center;
 }
 
 .signup-title {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
-  color: #333333;
+  color: #2c3e50;
 }
 
 .signup-form {
@@ -76,7 +76,7 @@ export default {
 .input-field {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #ddd;
   border-radius: 8px;
   background-color: #f5f5f5;
   font-size: 16px;
@@ -85,15 +85,16 @@ export default {
 
 .register-button {
   padding: 15px;
-  background-color: #4caf50;
+  background-color: #3498db;
   border: none;
   border-radius: 8px;
   color: #ffffff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
 .register-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px #4caf50;
+  box-shadow: 0 0 10px #3498db;
 }
 </style>

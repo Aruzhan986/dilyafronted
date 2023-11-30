@@ -22,43 +22,42 @@ export default {
 
 <style>
 .custom-admin-panel {
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
-  padding: 40px;
-  background-color: #f7f7f7;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 60px 40px;
+  background-color: #1f1f1f;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
+  color: #fff;
 }
 
 .custom-panel-title {
-  color: #333;
-  font-size: 26px;
-  margin-bottom: 30px;
+  color: #ccc;
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 .custom-panel-options {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 }
 
 .custom-option-item {
-  padding: 20px;
-  background-color: #e3f2fd;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 25px 40px;
+  background-color: #333;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-  font-size: 18px;
+  font-size: 24px;
+  color: #fff;
 }
 
 .custom-option-item:hover {
   transform: translateY(-5px);
-  background-color: #bbdefb;
+  background-color: #444;
 }
 </style>
-
-
-
-

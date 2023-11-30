@@ -1,23 +1,23 @@
 <template>
-  <div class="custom-category-management-interface">
-    <h1 class="custom-interface-title">Управление Категориями</h1>
-    <div v-if="isAdmin" class="custom-category-addition-area">
-      <input type="text" v-model="newCategoryName" placeholder="Название категории" class="custom-input-style">
-      <button @click="addCategory" class="custom-btn-style custom-add-category-btn">Добавить Категорию</button>
+  <div class="category-management">
+    <h1>Категории</h1>
+    <div v-if="isAdmin" class="input-container">
+      <input type="text" v-model="newCategoryName" placeholder="Введите новую категорию" class="input-field">
+      <button @click="addCategory" class="add-btn">Добавить</button>
     </div>
-    <div class="custom-category-display-grid">
-      <div v-for="category in categories" :key="category.id" class="custom-category-card">
-        <h3>{{ category.name }}</h3>
-        <div v-if="isAdmin" class="custom-card-actions">
-          <button @click="startEditCategory(category)" class="custom-btn-style custom-edit-category-btn">Изменить</button>
-          <button @click="deleteCategory(category.id)" class="custom-btn-style custom-delete-category-btn">Удалить</button>
+    <ul class="category-list">
+      <li v-for="category in categories" :key="category.id" class="category-item">
+        {{ category.name }}
+        <div v-if="isAdmin" class="button-group">
+          <button @click="startEditCategory(category)" class="edit-btn">Редактировать</button>
+          <button @click="deleteCategory(category.id)" class="delete-btn">Удалить</button>
         </div>
-        <div v-if="selectedCategory === category.id" class="custom-category-editing-area">
-          <input type="text" v-model="selectedCategory.name" class="custom-input-style">
-          <button @click="confirmEditCategory" class="custom-btn-style custom-confirm-edit-btn">Сохранить</button>
-          <button @click="cancelEditCategory" class="custom-btn-style custom-cancel-edit-btn">Отмена</button>
-        </div>
-      </div>
+      </li>
+    </ul>
+    <div v-if="selectedCategory" class="edit-container">
+      <input type="text" v-model="selectedCategory.name" class="input-field">
+      <button @click="confirmEditCategory" class="save-btn">Сохранить изменения</button>
+      <button @click="cancelEditCategory" class="cancel-btn">Отменить</button>
     </div>
   </div>
 </template>
@@ -107,72 +107,71 @@
   };
   </script>
   <style>
-  .custom-category-management-interface {
-    max-width: 800px;
+  .category-management {
+    max-width: 600px;
     margin: auto;
-    padding: 40px;
-    background-color: #f7f7f7;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .custom-interface-title {
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
     color: #333;
-    font-size: 26px;
-    margin-bottom: 30px;
   }
   
-  .custom-category-addition-area {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 25px;
+  .input-container,
+  .edit-container {
+    margin-bottom: 20px;
   }
   
-  .custom-input-style {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+  .input-field {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #888;
+    border-radius: 4px;
   }
   
-  .custom-btn-style {
-    padding: 10px 20px;
+  button {
+    padding: 8px 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+  }
+  
+  .add-btn,
+  .save-btn {
+    background-color: #333;
     color: white;
   }
   
-  .custom-add-category-btn { background-color: #673ab7; }
-.custom-edit-category-btn { background-color: #03a9f4; }
-.custom-delete-category-btn { background-color: #f44336; }
-.custom-confirm-edit-btn { background-color: #4caf50; }
-.custom-cancel-edit-btn { background-color: #9e9e9e; }
-
-
-.custom-btn-style {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
-  color: white;
-  font-size: 16px;
-  margin: 5px;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.custom-btn-style:hover {
-  transform: translateY(-3px);
-}
-
-.custom-add-category-btn:hover { background-color: #5e35b1; }
-.custom-edit-category-btn:hover { background-color: #039be5; }
-.custom-delete-category-btn:hover { background-color: #e53935; }
-.custom-confirm-edit-btn:hover { background-color: #43a047; }
-.custom-cancel-edit-btn:hover { background-color: #757575; }
-</style>
+  .edit-btn {
+    background-color: #555;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #888;
+    color: white;
+  }
+  
+  .category-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-item {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  </style>

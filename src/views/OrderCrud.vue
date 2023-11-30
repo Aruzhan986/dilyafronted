@@ -1,6 +1,6 @@
 <template>
   <div class="orders-dashboard">
-    <h1 class="dashboard-title">Обзор Заказов</h1>
+    <h1 class="dashboard-title">Заказы</h1>
     <div class="orders-content">
       <div class="table-header">
         <div class="header-cell">ID</div>
@@ -50,57 +50,59 @@ export default {
 
 <style>
 .orders-dashboard {
-  max-width: 1100px; 
+  max-width: 1100px;
   margin: 50px auto;
-  padding: 50px; 
-  background: linear-gradient(145deg, #81d4fa, #4fc3f7); 
-  border-radius: 30px; 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+  padding: 40px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #000;; 
+  color: #333;
 }
 
 .dashboard-title {
-  font-size: 32px; 
-  margin-bottom: 40px; 
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .orders-content {
   display: grid;
-  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
   text-align: center;
   overflow-x: auto;
-  border-radius: 15px; 
-  overflow: hidden; 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .header-cell,
 .order-cell {
-  padding: 18px;
-  border: 2px solid transparent; 
+  padding: 16px;
+  border: 2px solid transparent;
+  font-weight: bold;
 }
 
 .table-header .header-cell {
-  background-color: #039be5;
-  font-weight: bold;
-  border-bottom: 2px solid #fff; 
+  background-color: #78909c;
+  color: #fff;
+  border-bottom: 2px solid #455a64;
 }
 
 .table-body .order-cell {
-  background-color: #f5f5f5; 
+  background-color: #eceff1;
 }
 
 .order-row:nth-child(even) .order-cell {
-  background-color: #e0e0e0; 
+  background-color: #cfd8dc;
 }
 
 @media screen and (max-width: 768px) {
   .orders-content {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .header-cell, .order-cell {
+  .header-cell,
+  .order-cell {
     padding: 12px;
   }
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="product-management-interface">
-    <h1 class="management-title">Управление Продуктами</h1>
+    <h1 class="management-title">Управление товарами</h1>
     <div v-if="isAdmin" class="product-creation-area">
       <div class="input-group">
-        <input type="text" v-model="newProduct.name" placeholder="Название продукта" class="product-input">
+        <input type="text" v-model="newProduct.name" placeholder="Название товара" class="product-input">
         <input type="number" v-model="newProduct.quantity" placeholder="Количество" class="product-input">
         <input type="number" v-model="newProduct.price" placeholder="Цена" class="product-input">
       </div>
@@ -130,18 +130,19 @@
   };
   </script>
 <style>
+
 .product-management-interface {
   max-width: 850px;
   margin: auto;
   padding: 50px;
-  background-color: #ffd54f;
+  background-color: #ffe082;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .management-title {
-  color: #424242;
+  color: #333;
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -165,7 +166,7 @@
 .product-select {
   padding: 12px;
   border-radius: 8px;
-  border: 2px solid #f57f17;
+  border: 2px solid #ffb300;
   flex-grow: 1;
   background-color: #fff;
 }
@@ -176,7 +177,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-  background-color: #ff8f00;
+  background-color: #ff6d00;
   color: #fff;
 }
 
@@ -187,7 +188,7 @@
 }
 
 .product-card {
-  background-color: #fffde7;
+  background-color: #fff9c4;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -212,7 +213,7 @@
 }
 
 .edit-product-btn {
-  background-color: #ff6f00;
+  background-color: #ff8f00;
   color: #fff;
 }
 

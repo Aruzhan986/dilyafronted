@@ -15,6 +15,7 @@
     <button @click="goToRegistration" class="custom-register-button">Sign Up</button>
   </div>
 </template>
+
 <script>
 import authService from '@/services/auth.service';
 
@@ -30,24 +31,22 @@ export default {
   },
   methods: {
     async login() {
-  const response = await authService.login(this.form);
-  if (response.success) {
-    const userRole = localStorage.getItem('roles');
-    if (userRole === 'Admin') { 
-        this.$router.push('/adminpage'); 
-    } else {
-        this.$router.push('/usercategory'); 
-    }
-  } else {
-    console.error("An error occurred during login.", response.errors);
-  }
-  
-},
-     goToRegistration() {
+      const response = await authService.login(this.form);
+      if (response.success) {
+        const userRole = localStorage.getItem('roles');
+        if (userRole === 'Admin') { 
+            this.$router.push('/adminpage'); 
+        } else {
+            this.$router.push('/usercategory'); 
+        }
+      } else {
+        console.error("An error occurred during login.", response.errors);
+      }
+    },
+    goToRegistration() {
       this.$router.push('/register'); 
     }
   }
-  
 }
 </script>
 
@@ -55,23 +54,24 @@ export default {
 .custom-login-interface {
   max-width: 400px;
   margin: auto;
-  padding: 30px;
-  background: #f5f5f5;
+  padding: 50px;
+  background: #2c3e50;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
+  color: #fff;
 }
 
 .custom-interface-title {
-  color: #333;
-  font-size: 28px;
-  margin-bottom: 20px;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 30px;
 }
 
 .custom-login-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
 .custom-input-area {
@@ -80,28 +80,35 @@ export default {
 
 .custom-input-box {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fff;
+  transition: border-color 0.3s;
+}
+
+.custom-input-box:focus {
+  border-color: #3498db;
+  outline: none;
 }
 
 .custom-input-label {
   position: absolute;
-  top: -10px;
+  top: -15px;
   left: 10px;
-  background-color: #f5f5f5;
+  background-color: #2c3e50;
   padding: 0 5px;
-  font-size: 14px;
-  color: #666;
+  font-size: 16px;
+  color: #fff;
 }
 
 .custom-login-button {
-  padding: 12px 0;
+  padding: 20px 0;
   background-color: #3498db;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -111,18 +118,18 @@ export default {
 }
 
 .custom-register-button {
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: transparent;
   color: #3498db;
-  border: 1px solid #3498db;
-  border-radius: 6px;
-  padding: 10px 0;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 15px 0;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .custom-register-button:hover {
   background-color: #3498db;
-  color: white;
+  color: #fff;
 }
 </style>
