@@ -1,29 +1,26 @@
 <template>
-  <div class="category-management-interface">
-    <h1 class="interface-title">Управление Категориями</h1>
-    <div v-if="isAdmin" class="category-addition-area">
-      <input type="text" v-model="newCategoryName" placeholder="Название категории" class="input-style">
-      <button @click="addCategory" class="btn-style add-category-btn">Добавить Категорию</button>
+  <div class="custom-category-management-interface">
+    <h1 class="custom-interface-title">Управление Категориями</h1>
+    <div v-if="isAdmin" class="custom-category-addition-area">
+      <input type="text" v-model="newCategoryName" placeholder="Название категории" class="custom-input-style">
+      <button @click="addCategory" class="custom-btn-style custom-add-category-btn">Добавить Категорию</button>
     </div>
-    <div class="category-display-grid">
-      <div v-for="category in categories" :key="category.id" class="category-card">
+    <div class="custom-category-display-grid">
+      <div v-for="category in categories" :key="category.id" class="custom-category-card">
         <h3>{{ category.name }}</h3>
-        <div v-if="isAdmin" class="card-actions">
-          <button @click="startEditCategory(category)" class="btn-style edit-category-btn">Изменить</button>
-          <button @click="deleteCategory(category.id)" class="btn-style delete-category-btn">Удалить</button>
+        <div v-if="isAdmin" class="custom-card-actions">
+          <button @click="startEditCategory(category)" class="custom-btn-style custom-edit-category-btn">Изменить</button>
+          <button @click="deleteCategory(category.id)" class="custom-btn-style custom-delete-category-btn">Удалить</button>
         </div>
-        <div v-if="selectedCategory === category.id" class="category-editing-area">
-          <input type="text" v-model="selectedCategory.name" class="input-style">
-          <button @click="confirmEditCategory" class="btn-style confirm-edit-btn">Сохранить</button>
-          <button @click="cancelEditCategory" class="btn-style cancel-edit-btn">Отмена</button>
+        <div v-if="selectedCategory === category.id" class="custom-category-editing-area">
+          <input type="text" v-model="selectedCategory.name" class="custom-input-style">
+          <button @click="confirmEditCategory" class="custom-btn-style custom-confirm-edit-btn">Сохранить</button>
+          <button @click="cancelEditCategory" class="custom-btn-style custom-cancel-edit-btn">Отмена</button>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
-  
   <script>
   export default {
     data() {
@@ -110,7 +107,7 @@
   };
   </script>
   <style>
-  .category-management-interface {
+  .custom-category-management-interface {
     max-width: 800px;
     margin: auto;
     padding: 40px;
@@ -120,26 +117,26 @@
     text-align: center;
   }
   
-  .interface-title {
+  .custom-interface-title {
     color: #333;
     font-size: 26px;
     margin-bottom: 30px;
   }
   
-  .category-addition-area {
+  .custom-category-addition-area {
     display: flex;
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 25px;
   }
   
-  .input-style {
+  .custom-input-style {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    flex-grow: 1;
   }
   
-  .btn-style {
+  .custom-btn-style {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -148,38 +145,34 @@
     color: white;
   }
   
-  .add-category-btn { background-color: #4caf50; }
-  .edit-category-btn { background-color: #ff9800; }
-  .delete-category-btn { background-color: #f44336; }
-  .confirm-edit-btn { background-color: #4caf50; }
-  .cancel-edit-btn { background-color: #9e9e9e; }
-  
-  .category-display-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .category-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .card-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
-  }
-  
-  .category-editing-area {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  </style>
-  
+  .custom-add-category-btn { background-color: #673ab7; }
+.custom-edit-category-btn { background-color: #03a9f4; }
+.custom-delete-category-btn { background-color: #f44336; }
+.custom-confirm-edit-btn { background-color: #4caf50; }
+.custom-cancel-edit-btn { background-color: #9e9e9e; }
+
+
+.custom-btn-style {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.custom-btn-style:hover {
+  transform: translateY(-3px);
+}
+
+.custom-add-category-btn:hover { background-color: #5e35b1; }
+.custom-edit-category-btn:hover { background-color: #039be5; }
+.custom-delete-category-btn:hover { background-color: #e53935; }
+.custom-confirm-edit-btn:hover { background-color: #43a047; }
+.custom-cancel-edit-btn:hover { background-color: #757575; }
+</style>

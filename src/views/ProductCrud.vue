@@ -131,66 +131,70 @@
   </script>
 <style>
 .product-management-interface {
-  max-width: 850px; 
+  max-width: 850px;
   margin: auto;
-  padding: 50px; 
-  background: linear-gradient(145deg, #e1bee7, #ce93d8); 
-  border-radius: 25px;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  background-color: #ffd54f;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .management-title {
-  color: #6a1b9a;
-  font-size: 28px; 
-  margin-bottom: 35px; 
+  color: #424242;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 .product-creation-area {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-.input-group, .select-group {
+.input-group,
+.select-group {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
 }
 
-.product-input, .product-select {
-  padding: 12px; 
-  border-radius: 10px;
-  border: 2px solid #ce93d8; 
+.product-input,
+.product-select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #f57f17;
   flex-grow: 1;
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .add-product-btn {
-  background-color: #ab47bc; 
+  padding: 12px 24px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: #ff8f00;
+  color: #fff;
 }
 
 .products-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px; 
+  gap: 20px;
 }
 
 .product-card {
-  background: #f3e5f5; 
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fffde7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-details h3 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .card-actions {
@@ -199,20 +203,22 @@
   justify-content: center;
 }
 
-.edit-product-btn, .delete-product-btn {
-  padding: 10px 18px;
+.edit-product-btn,
+.delete-product-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.edit-product-btn { background-color: #ba68c8; }
-.delete-product-btn { background-color: #9c27b0; }
+.edit-product-btn {
+  background-color: #ff6f00;
+  color: #fff;
+}
 
-@media (max-width: 600px) {
-  .input-group, .select-group {
-    flex-direction: column;
-  }
-  .product-input, .product-select {
-    flex-basis: 100%;
-  }
+.delete-product-btn {
+  background-color: #e65100;
+  color: #fff;
 }
 </style>
 

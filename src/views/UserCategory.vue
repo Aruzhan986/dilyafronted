@@ -1,80 +1,84 @@
 <template>
   <div class="category-overview-page">
-    <h1 class="overview-title">Просмотр</h1>
-    <div class="category-grid">
-      <div v-for="category in categories" :key="category.id" class="category-tile">
-        <div class="category-content">
-          <h3 class="category-heading">{{ category.name }}</h3>
+    <h1 class="overview-title">Категории</h1>
+    <div class="category-list">
+      <div v-for="category in categories" :key="category.id" class="category-item">
+        <div class="category-details">
+          <h3 class="category-name">{{ category.name }}</h3>
         </div>
       </div>
     </div>
   </div>
-</template> 
-  <script>
-  export default {
-    data() {
-      return {
-        categories: []
-      };
-    },
-    created() {
-      this.fetchCategories();
-    },
-    methods: {
-      async fetchCategories() {
-        try {
-          const response = await this.$http.get('/category/categories');
-          this.categories = response.data;
-        } catch (error) {
-          console.error("Ошибка при получении категорий:", error);
-        }
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      categories: []
+    };
+  },
+  created() {
+    this.fetchCategories();
+  },
+  methods: {
+    async fetchCategories() {
+      try {
+        const response = await this.$http.get('/category/categories');
+        this.categories = response.data;
+      } catch (error) {
+        console.error("Ошибка при получении категорий:", error);
       }
     }
-  };
-  </script>
-  
-  <style scoped>
-  .category-overview-page {
-    max-width: 950px;
-    margin: 50px auto;
-    padding: 50px;
-    background: linear-gradient(to right, #8e9eab, #eef2f3); 
-    border-radius: 30px; 
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); 
-    text-align: center;
   }
-  
-  .overview-title {
-    color: #3f51b5; 
-    font-size: 32px; 
-    margin-bottom: 40px; 
-  }
-  
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-    gap: 30px;
-  }
-  
-  .category-tile {
-    background: #fff;
-    padding: 25px; 
-    border-radius: 20px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .category-tile:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); 
-  }
-  
-  .category-heading {
-    font-size: 20px; 
-    color: #1a237e; 
-    font-weight: 700;
-  }
-  </style>
-  
+};
+</script>
 
-  
+<style scoped>
+.category-overview-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.overview-title {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.category-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px); 
+  text-align: center;
+}
+
+.category-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-name {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 10px;
+}
+</style>

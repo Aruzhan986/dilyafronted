@@ -148,49 +148,41 @@ export default {
   transition: background-color 0.3s ease;
 }
 
-.client-add-btn { background-color: #66bb6a; }
-.edit-client-btn { background-color: #42a5f5; }
-.delete-client-btn { background-color: #e53935; }
-.client-save-btn { background-color: #2e7d32; }
-.client-cancel-btn { background-color: #afb42b; }
-
-.client-cards-layout {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.client-add-btn,
+.edit-client-btn,
+.delete-client-btn,
+.client-save-btn,
+.client-cancel-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.client-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.client-add-btn:hover {
+  background-color: #4caf50;
 }
 
-.card-header h3 {
-  color: #388e3c;
-  margin: 0 0 15px 0;
+.edit-client-btn:hover {
+  background-color: #2196f3;
 }
 
-.card-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.delete-client-btn:hover {
+  background-color: #f44336;
 }
 
-.edit-client-area {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.client-save-btn:hover {
+  background-color: #2e7d32;
 }
 
-@media (max-width: 768px) {
-  .add-client-section {
-    grid-template-columns: 1fr 1fr;
-  }
-  .client-cards-layout {
-    grid-template-columns: 1fr;
-  }
+.client-cancel-btn:hover {
+  background-color: #ffeb3b;
 }
 </style>

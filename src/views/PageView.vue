@@ -1,11 +1,11 @@
 <template>
-  <div class="admin-panel">
-    <h1 class="panel-title">Административная Панель</h1>
-    <div class="panel-options">
-      <div @click="goToPage('/category')" class="option-item">Категории</div>
-      <div @click="goToPage('/adminproduct')" class="option-item">Продукты</div>
-      <div @click="goToPage('/adminclient')" class="option-item">Клиенты</div>
-      <div @click="goToPage('/adminorder')" class="option-item">Заказы</div>
+  <div class="custom-admin-panel">
+    <h1 class="custom-panel-title">Административная Панель</h1>
+    <div class="custom-panel-options">
+      <div @click="goToPage('/category')" class="custom-option-item">Категории</div>
+      <div @click="goToPage('/adminproduct')" class="custom-option-item">Продукты</div>
+      <div @click="goToPage('/adminclient')" class="custom-option-item">Клиенты</div>
+      <div @click="goToPage('/adminorder')" class="custom-option-item">Заказы</div>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style>
-.admin-panel {
+.custom-admin-panel {
   max-width: 700px;
   margin: auto;
   padding: 40px;
@@ -31,19 +31,19 @@ export default {
   text-align: center;
 }
 
-.panel-title {
+.custom-panel-title {
   color: #333;
   font-size: 26px;
   margin-bottom: 30px;
 }
 
-.panel-options {
+.custom-panel-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
 }
 
-.option-item {
+.custom-option-item {
   padding: 20px;
   background-color: #e3f2fd;
   border-radius: 15px;
@@ -53,7 +53,7 @@ export default {
   font-size: 18px;
 }
 
-.option-item:hover {
+.custom-option-item:hover {
   transform: translateY(-5px);
   background-color: #bbdefb;
 }

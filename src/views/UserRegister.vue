@@ -1,24 +1,20 @@
 <template>
   <div class="signup-page">
-    <h1 class="signup-title">Регистрация Нового Пользователя</h1>
+    <h1 class="signup-title">Регистрация</h1>
     <form @submit.prevent="registerUser" class="signup-form">
       <div class="input-group">
-        <input id="name" v-model="name" type="text" required placeholder="Введите ваше имя" class="input-field">
-        <label for="name" class="input-label">Имя</label>
+        <input id="name" v-model="name" type="text" required placeholder="Имя" class="input-field">
       </div>
       <div class="input-group">
-        <input id="email" v-model="email" type="email" required placeholder="Введите ваш email" class="input-field">
-        <label for="email" class="input-label">Email</label>
+        <input id="email" v-model="email" type="email" required placeholder="Email" class="input-field">
       </div>
       <div class="input-group">
-        <input id="password" v-model="password" type="password" required placeholder="Введите пароль" class="input-field">
-        <label for="password" class="input-label">Пароль</label>
+        <input id="password" v-model="password" type="password" required placeholder="Пароль" class="input-field">
       </div>
       <button type="submit" class="register-button">Зарегистрироваться</button>
     </form>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -38,40 +34,39 @@ export default {
       };
       this.$http.post('/register', userData)
         .then(response => {
-          
           localStorage.setItem('authToken', response.data.token); 
           this.$router.push('/usercategory'); 
         })
         .catch(error => {
           console.error(error);
-          
         });
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .signup-page {
-  max-width: 450px;
+  max-width: 400px;
   margin: 50px auto;
-  padding: 50px;
-  background: linear-gradient(145deg, #81c784, #66bb6a); 
-  border-radius: 15px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
-  color: #fff; 
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  text-align: center;
 }
 
 .signup-title {
-  text-align: center;
-  font-size: 26px; 
-  margin-bottom: 30px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333333;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .input-group {
@@ -80,32 +75,25 @@ export default {
 
 .input-field {
   width: 100%;
-  padding: 12px; 
-  border: 2px solid #fff; 
-  border-radius: 8px; 
-  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f5f5f5;
   font-size: 16px;
-  color: #333; 
-}
-
-.input-label {
-  position: absolute;
-  top: -12px; 
-  left: 15px; 
-  background: none; 
-  font-size: 14px; 
-  color: #fff; 
+  color: #333333;
 }
 
 .register-button {
-  padding: 15px; 
-  background-color: #2e7d32; 
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  padding: 15px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .register-button:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 0 10px #1b5e20; 
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #4caf50;
 }
 </style>
-

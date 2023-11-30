@@ -1,22 +1,20 @@
 <template>
-  <div class="login-interface">
-    <h1 class="interface-title">Вход</h1>
-    <form @submit.prevent="login" class="login-form">
-      <div class="input-area">
-        <input id="email" v-model="form.email" type="email" required placeholder="Электронная почта" class="input-box">
-        <label for="email" class="input-label">Email</label>
+  <div class="custom-login-interface">
+    <h1 class="custom-interface-title">Welcome</h1>
+    <form @submit.prevent="login" class="custom-login-form">
+      <div class="custom-input-area">
+        <label for="email" class="custom-input-label">Email</label>
+        <input id="email" v-model="form.email" type="email" required class="custom-input-box">
       </div>
-      <div class="input-area">
-        <input id="password" v-model="form.password" type="password" required placeholder="Пароль" class="input-box">
-        <label for="password" class="input-label">Пароль</label>
+      <div class="custom-input-area">
+        <label for="password" class="custom-input-label">Password</label>
+        <input id="password" v-model="form.password" type="password" required class="custom-input-box">
       </div>
-      <button type="submit" class="login-button">Вход</button>
+      <button type="submit" class="custom-login-button">Log In</button>
     </form>
-    <button @click="goToRegistration" class="register-button">Регистрация</button>
+    <button @click="goToRegistration" class="custom-register-button">Sign Up</button>
   </div>
 </template>
-
-
 <script>
 import authService from '@/services/auth.service';
 
@@ -54,77 +52,77 @@ export default {
 </script>
 
 <style scoped>
-.login-interface {
-  max-width: 350px;
+.custom-login-interface {
+  max-width: 400px;
   margin: auto;
-  padding: 40px;
-  background: #eceff1;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.interface-title {
-  color: #455a64;
-  font-size: 26px;
-  margin-bottom: 25px;
+.custom-interface-title {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.login-form {
+.custom-login-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
-.input-area {
+.custom-input-area {
   position: relative;
 }
 
-.input-box {
+.custom-input-box {
   width: 100%;
   padding: 12px;
-  border: 1px solid #cfd8dc;
-  border-radius: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   background-color: #fff;
 }
 
-.input-label {
+.custom-input-label {
   position: absolute;
-  top: -8px;
+  top: -10px;
   left: 10px;
-  background-color: #eceff1;
-  padding: 0 4px;
+  background-color: #f5f5f5;
+  padding: 0 5px;
   font-size: 14px;
-  color: #455a64;
+  color: #666;
 }
 
-.login-button {
+.custom-login-button {
   padding: 12px 0;
-  background-color: #1e88e5;
+  background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.login-button:hover {
-  background-color: #1565c0;
+.custom-login-button:hover {
+  background-color: #2980b9;
 }
 
-.register-button {
-  margin-top: 15px;
+.custom-register-button {
+  margin-top: 20px;
   background-color: transparent;
-  color: #1e88e5;
-  border: 1px solid #1e88e5;
-  border-radius: 8px;
-  padding: 8px 0;
+  color: #3498db;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  padding: 10px 0;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.register-button:hover {
-  background-color: #1e88e5;
+.custom-register-button:hover {
+  background-color: #3498db;
   color: white;
 }
 </style>

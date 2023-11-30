@@ -57,7 +57,7 @@ export default {
   border-radius: 30px; 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
   text-align: center;
-  color: #fff; 
+  color: #000;; 
 }
 
 .dashboard-title {
@@ -67,27 +67,32 @@ export default {
 
 .orders-content {
   display: grid;
-  grid-template-columns: repeat(6, minmax(120px, 1fr)); 
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
   text-align: center;
   overflow-x: auto;
+  border-radius: 15px; 
+  overflow: hidden; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
 }
 
-.table-header, .order-row {
-  display: contents;
-}
-
-.header-cell, .order-cell {
-  padding: 18px; 
-  border: 2px solid #fff; 
+.header-cell,
+.order-cell {
+  padding: 18px;
+  border: 2px solid transparent; 
 }
 
 .table-header .header-cell {
-  background-color: #0288d1; 
-  font-weight: 600; 
+  background-color: #039be5;
+  font-weight: bold;
+  border-bottom: 2px solid #fff; 
 }
 
 .table-body .order-cell {
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: #f5f5f5; 
+}
+
+.order-row:nth-child(even) .order-cell {
+  background-color: #e0e0e0; 
 }
 
 @media screen and (max-width: 768px) {
