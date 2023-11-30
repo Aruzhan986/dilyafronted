@@ -1,14 +1,15 @@
 <template>
-  <div class="navigation-container">
-    <h1 class="navigation-title">Admin Dashboard</h1>
-    <div class="circle-menu">
-      <button @click="goToPage('/category')" class="menu-item">Category</button>
-      <button @click="goToPage('/adminproduct')" class="menu-item">Product</button>
-      <button @click="goToPage('/adminclient')" class="menu-item">Client</button>
-      <button @click="goToPage('/adminorder')" class="menu-item">Order</button>
+  <div class="admin-dashboard">
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+    <div class="dashboard-menu">
+      <div @click="goToPage('/category')" class="menu-card">Category</div>
+      <div @click="goToPage('/adminproduct')" class="menu-card">Product</div>
+      <div @click="goToPage('/adminclient')" class="menu-card">Client</div>
+      <div @click="goToPage('/adminorder')" class="menu-card">Order</div>
     </div>
   </div>
 </template>
+
 
 
 
@@ -23,54 +24,44 @@ export default {
 </script>
 
 <style>
-.navigation-container {
+.admin-dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  background-color: #eceff1;
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navigation-title {
-  color: #2e3c48;
-  font-size: 24px;
-  margin-bottom: 40px;
+.dashboard-title {
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.dashboard-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-.circle-menu {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-color: #455a64;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-item {
-  position: absolute;
-  padding: 10px 20px;
-  background-color: #90a4ae;
-  color: white;
-  border: none;
-  border-radius: 20px;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.menu-item:hover {
-  transform: translateY(-5px);
-  background-color: #78909c;
+.menu-card:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
-
-.menu-item:nth-child(1) { top: 10px; left: 50%; transform: translateX(-50%); }
-.menu-item:nth-child(2) { right: 10px; top: 50%; transform: translateY(-50%); }
-.menu-item:nth-child(3) { bottom: 10px; left: 50%; transform: translateX(-50%); }
-.menu-item:nth-child(4) { left: 10px; top: 50%; transform: translateY(-50%); }
 </style>
+
 
 

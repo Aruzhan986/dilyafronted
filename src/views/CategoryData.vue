@@ -1,26 +1,27 @@
 <template>
-  <div class="category-management">
-    <h1>Категории</h1>
-    <div v-if="isAdmin" class="input-container">
-      <input type="text" v-model="newCategoryName" placeholder="Название новой категории" class="input-field">
-      <button @click="addCategory" class="add-btn">Добавить Категорию</button>
+  <div class="categories-management-area">
+    <h1 class="management-title">Управление Категориями</h1>
+    <div v-if="isAdmin" class="add-category-section">
+      <input type="text" v-model="newCategoryName" placeholder="Название новой категории" class="category-input">
+      <button @click="addCategory" class="add-category-btn">Добавить</button>
     </div>
-    <ul class="category-list">
-      <li v-for="category in categories" :key="category.id" class="category-item">
-        {{ category.name }}
-        <div v-if="isAdmin" class="button-group">
-          <button @click="startEditCategory(category)" class="edit-btn">Изменить</button>
-          <button @click="deleteCategory(category.id)" class="delete-btn">Удалить</button>
+    <div class="categories-display">
+      <div v-for="category in categories" :key="category.id" class="category-card">
+        <span>{{ category.name }}</span>
+        <div v-if="isAdmin" class="category-actions">
+          <button @click="startEditCategory(category)" class="edit-category-btn">Изменить</button>
+          <button @click="deleteCategory(category.id)" class="delete-category-btn">Удалить</button>
         </div>
-      </li>
-    </ul>
-    <div v-if="selectedCategory" class="edit-container">
-      <input type="text" v-model="selectedCategory.name" class="input-field">
-      <button @click="confirmEditCategory" class="save-btn">Сохранить изменения</button>
-      <button @click="cancelEditCategory" class="cancel-btn">Отменить</button>
+        <div v-if="selectedCategory === category.id" class="edit-category-section">
+          <input type="text" v-model="selectedCategory.name" class="category-input">
+          <button @click="confirmEditCategory" class="save-changes-btn">Сохранить</button>
+          <button @click="cancelEditCategory" class="cancel-changes-btn">Отменить</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 
   
   <script>
@@ -108,69 +109,77 @@
     },
   };
   </script>
-  <style>
-  .category-management {
-    max-width: 600px;
+  <style scoped>
+  .categories-management-area {
+    max-width: 800px;
     margin: auto;
-    padding: 20px;
-    background: #f5f5f5;
-    border-radius: 8px;
+    padding: 30px;
+    background: #e3f2fd;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   }
   
-  .input-container, .edit-container {
+  .management-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .input-field {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .add-category-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
   }
   
-  button {
-    padding: 8px 15px;
+  .category-input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #90a4ae;
+    flex-grow: 1;
+  }
+  
+  .add-category-btn, .edit-category-btn, .delete-category-btn, .save-changes-btn, .cancel-changes-btn {
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
-  .add-btn, .save-btn {
-    background-color: #4CAF50;
-    color: white;
+  .add-category-btn { background-color: #4CAF50; color: white; }
+  .edit-category-btn { background-color: #ffca28; color: black; }
+  .delete-category-btn { background-color: #f44336; color: white; }
+  .save-changes-btn { background-color: #4caf50; color: white; }
+  .cancel-changes-btn { background-color: #78909c; color: white; }
+  
+  .categories-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
   }
   
-  .edit-btn {
-    background-color: #ffc107;
-    color: black;
-  }
-  
-  .delete-btn {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .cancel-btn {
-    background-color: #9e9e9e;
-    color: black;
-  }
-  
-  .category-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .category-item {
+  .category-card {
     background: #fff;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
-  .button-group {
+  .category-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .edit-category-section {
+    margin-top: 15px;
     display: flex;
     gap: 10px;
+    justify-content: center;
   }
   </style>
+  

@@ -1,23 +1,24 @@
 <template>
-  <div class="registration-container">
-    <h1>Регистрация</h1>
+  <div class="registration-page">
+    <h1 class="registration-title">Регистрация</h1>
     <form @submit.prevent="registerUser" class="registration-form">
-      <div class="form-field">
+      <div class="input-group">
         <label for="name">Имя:</label>
-        <input id="name" v-model="name" type="text" required>
+        <input id="name" v-model="name" type="text" required class="input-field">
       </div>
-      <div class="form-field">
+      <div class="input-group">
         <label for="email">Email:</label>
-        <input id="email" v-model="email" type="email" required>
+        <input id="email" v-model="email" type="email" required class="input-field">
       </div>
-      <div class="form-field">
+      <div class="input-group">
         <label for="password">Пароль:</label>
-        <input id="password" v-model="password" type="password" required>
+        <input id="password" v-model="password" type="password" required class="input-field">
       </div>
-      <button type="submit" class="submit-btn">Зарегистрироваться</button>
+      <button type="submit" class="register-btn">Зарегистрироваться</button>
     </form>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -51,14 +52,20 @@ export default {
 </script>
 
 <style>
-.registration-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+.registration-page {
+  max-width: 500px;
+  margin: auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.registration-title {
+  text-align: center;
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 30px;
 }
 
 .registration-form {
@@ -67,47 +74,36 @@ export default {
   gap: 20px;
 }
 
-.form-field {
+.input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-label {
-  margin-bottom: 8px;
+.label {
+  margin-bottom: 5px;
   font-size: 14px;
   color: #555;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: #f8f9fa;
-  transition: border 0.3s, box-shadow 0.3s;
+.input-field {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0,123,255,.25);
-}
-
-.submit-btn {
-  padding: 12px 20px;
-  background-color: #007bff;
+.register-btn {
+  padding: 15px;
+  background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover {
-  background-color: #0056b3;
+.register-btn:hover {
+  background-color: #388e3c;
 }
-
 </style>

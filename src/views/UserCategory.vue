@@ -1,13 +1,16 @@
 <template>
-  <div class="categories-display-container">
-    <h1 class="categories-title">Страница пользователя</h1>
-    <div class="categories-grid">
+  <div class="user-page-container">
+    <h1 class="user-page-title">Категории</h1>
+    <div class="category-cards-container">
       <div v-for="category in categories" :key="category.id" class="category-card">
-        <span class="category-name">{{ category.name }}</span>
+        <div class="card-content">
+          <span class="category-title">{{ category.name }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 
   
   <script>
@@ -34,46 +37,50 @@
   </script>
   
   <style scoped>
-.categories-display-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 30px;
-  background: #e3f2fd;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.categories-title {
-  text-align: center;
-  color: #1e88e5;
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.category-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.category-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.category-name {
-  color: #333;
-  font-size: 18px;
-  font-weight: bold;
-}
-</style>
+  .user-page-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-page-title {
+    text-align: center;
+    color: #2e3c48;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .category-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .category-card {
+    background-color: #f0f4f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .category-card:hover {
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-content {
+    padding: 10px;
+  }
+  
+  .category-title {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  </style>
+  
