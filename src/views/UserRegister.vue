@@ -1,20 +1,20 @@
 <template>
-  <div class="registration-section">
-    <h1 class="section-title">Регистрация</h1>
-    <form @submit.prevent="registerUser" class="registration-form">
-      <div class="form-field">
-        <label for="name">Имя:</label>
-        <input id="name" v-model="name" type="text" required class="form-input">
+  <div class="signup-page">
+    <h1 class="signup-title">Регистрация Нового Пользователя</h1>
+    <form @submit.prevent="registerUser" class="signup-form">
+      <div class="input-group">
+        <input id="name" v-model="name" type="text" required placeholder="Введите ваше имя" class="input-field">
+        <label for="name" class="input-label">Имя</label>
       </div>
-      <div class="form-field">
-        <label for="email">Email:</label>
-        <input id="email" v-model="email" type="email" required class="form-input">
+      <div class="input-group">
+        <input id="email" v-model="email" type="email" required placeholder="Введите ваш email" class="input-field">
+        <label for="email" class="input-label">Email</label>
       </div>
-      <div class="form-field">
-        <label for="password">Пароль:</label>
-        <input id="password" v-model="password" type="password" required class="form-input">
+      <div class="input-group">
+        <input id="password" v-model="password" type="password" required placeholder="Введите пароль" class="input-field">
+        <label for="password" class="input-label">Пароль</label>
       </div>
-      <button type="submit" class="submit-btn">Зарегистрироваться</button>
+      <button type="submit" class="register-button">Зарегистрироваться</button>
     </form>
   </div>
 </template>
@@ -52,62 +52,62 @@ export default {
 </script>
 
 <style>
-.registration-section {
-  max-width: 450px;
-  margin: 50px auto;
-  padding: 30px;
-  background: linear-gradient(to right, #6dd5ed, #2196f3);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  color: #fff;
+.signup-page {
+  max-width: 400px;
+  margin: auto;
+  padding: 40px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.section-title {
+.signup-title {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 25px;
 }
 
-.registration-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
+.input-group {
+  position: relative;
 }
 
-.label {
-  margin-bottom: 5px;
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.form-input {
+.input-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: #f3f4f6;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #333;
+}
+
+.register-button {
   padding: 12px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: #333;
-}
-
-.form-input:focus {
-  background-color: #fff;
-  color: #333;
-}
-
-.submit-btn {
-  padding: 15px;
-  background-color: #fff;
-  color: #2196f3;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-  background-color: #f8f9fa;
-  color: #0d47a1;
+.register-button:hover {
+  background-color: #388e3c;
 }
 </style>
+

@@ -1,18 +1,18 @@
 <template>
-  <div class="login-interface">
-    <h1 class="login-heading">Вход</h1>
-    <form @submit.prevent="login" class="login-form-style">
-      <div class="field-container">
+  <div class="login-area">
+    <h1 class="login-title">Вход в Систему</h1>
+    <form @submit.prevent="login" class="login-form">
+      <div class="input-field">
         <label for="email">Email</label>
-        <input id="email" v-model="form.email" type="email" required class="input-style">
+        <input id="email" v-model="form.email" type="email" required class="text-input">
       </div>
-      <div class="field-container">
+      <div class="input-field">
         <label for="password">Пароль</label>
-        <input id="password" v-model="form.password" type="password" required class="input-style">
+        <input id="password" v-model="form.password" type="password" required class="text-input">
       </div>
-      <button type="submit" class="submit-button">Войти</button>
+      <button type="submit" class="login-btn">Войти</button>
     </form>
-    <button @click="goToRegistration" class="registration-button">Нет аккаунта? Регистрация</button>
+    <button @click="goToRegistration" class="register-link">Новый пользователь? Регистрация</button>
   </div>
 </template>
 
@@ -54,74 +54,79 @@ export default {
 }
 </script>
 
-<style scoped>
-.login-interface {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 40px;
-  background-color: #f7f7f7;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+<style>
+.login-area {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(to right top, #6dd5ed, #2196f3);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.login-title {
   text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
 }
 
-.login-heading {
-  color: #424242;
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
-.login-form-style {
+.login-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-.field-container {
+.input-field {
   display: flex;
   flex-direction: column;
 }
 
 .label {
-  margin-bottom: 8px;
-  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.text-input {
+  padding: 12px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
   color: #333;
 }
 
-.input-style {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+.text-input:focus {
   background-color: #fff;
+  color: #333;
 }
 
-.submit-button {
-  padding: 12px 20px;
-  background-color: #00897b;
-  color: white;
+.login-btn {
+  padding: 15px;
+  background-color: #fff;
+  color: #2196f3;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.submit-button:hover {
-  background-color: #00695c;
+.login-btn:hover {
+  background-color: #f8f9fa;
+  color: #0d47a1;
 }
 
-.registration-button {
-  margin-top: 20px;
-  background-color: transparent;
-  color: #00897b;
-  border: 2px solid #00897b;
-  border-radius: 10px;
+.register-link {
+  margin-top: 15px;
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
   padding: 8px 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.registration-button:hover {
-  background-color: #00897b;
-  color: white;
+.register-link:hover {
+  background-color: #fff;
+  color: #2196f3;
 }
 </style>
