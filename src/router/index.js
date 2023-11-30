@@ -8,12 +8,9 @@ import ProductsData from "@/views/ProductsData.vue";
 import ProductData from "@/components/products/ProductData.vue";
 import UserRegister from "@/views/UserRegister.vue"; 
 import UserLogin from "@/views/UserLogin.vue"; 
-import CategoryData from "@/views/CategoryData.vue";
 import UserCategory from "@/views/UserCategory.vue";
-import PageView from "@/views/PageView.vue";   
 import ProductCrud from "@/views/ProductCrud.vue"; 
-import ClientCrud from "@/views/ClientCrud.vue"; 
-import OrderCrud from "@/views/OrderCrud.vue"; 
+
 
 const routes = [
     { path: '/', component: HelloWorld, name: 'Home' },
@@ -25,12 +22,9 @@ const routes = [
     { path: '/post/:id/user/:userId', component: PostData, name: 'PostData' },
     { path: '/register', component: UserRegister, name: 'UserRegister' }, 
     { path: '/login', component: UserLogin, name: 'UserLogin' },
-    { path: '/category', component: CategoryData, name: 'CategoryData' }, 
     { path: '/usercategory', component: UserCategory, name: 'UserCategory' },
-    { path: '/adminpage', component: PageView, name: 'PageView' },
     { path: '/adminproduct', component: ProductCrud, name: 'ProductCrud' },
-    { path: '/adminclient', component: ClientCrud, name: 'ClientCrud' }, 
-    { path: '/adminorder', component: OrderCrud, name: 'OrderCrud' }, 
+
 ];
 
 const router = createRouter({

@@ -35,7 +35,7 @@ export default {
       if (response.success) {
         const userRole = localStorage.getItem('roles');
         if (userRole === 'Admin') { 
-            this.$router.push('/adminpage'); 
+            this.$router.push('/adminproduct'); 
         } else {
             this.$router.push('/usercategory'); 
         }
