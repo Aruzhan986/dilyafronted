@@ -13,6 +13,7 @@ import UserCategory from "@/views/UserCategory.vue";
 import AdminPage from "@/views/AdminPage.vue";   
 import AdminProduct from "@/views/AdminProduct.vue"; 
 import AdminClient from "@/views/AdminClient.vue"; 
+import AdminOrder from "@/views/AdminOrder.vue"; 
 
 const routes = [
     { path: '/', component: HelloWorld, name: 'Home' },
@@ -29,6 +30,7 @@ const routes = [
     { path: '/adminpage', component: AdminPage, name: 'AdminPage' },
     { path: '/adminproduct', component: AdminProduct, name: 'AdminProduct' },
     { path: '/adminclient', component: AdminClient, name: 'AdminClient' }, 
+    { path: '/adminorder', component: AdminOrder, name: 'AdminOrder' }, 
 ];
 
 const router = createRouter({

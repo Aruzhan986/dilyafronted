@@ -1,11 +1,11 @@
 <template>
-    <div>
-      <h1>Категории</h1>
-      <ul>
-        <li v-for="category in categories" :key="category.id">{{ category.name }}</li>
-      </ul>
-    </div>
-  </template>
+  <div class="category-container">
+    <h1>Категории</h1>
+    <ul class="category-list">
+      <li v-for="category in categories" :key="category.id" class="category-item">{{ category.name }}</li>
+    </ul>
+  </div>
+</template>
   
   <script>
   export default {
@@ -31,6 +31,33 @@
   </script>
   
   <style scoped>
- 
-  </style>
-  
+.category-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.category-item:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+</style>

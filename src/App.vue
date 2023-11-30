@@ -7,18 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <RouterLink :to="'/'" class="nav-link">Home</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink :to="'/users'" class="nav-link">Users</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink :to="'/posts'" class="nav-link">Posts</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink :to="'/products'" class="nav-link">Products</RouterLink>
-          </li>
+          
           <li class="nav-item">
             <RouterLink :to="'/register'" class="nav-link">Register</RouterLink>
           </li>
