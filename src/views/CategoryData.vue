@@ -1,26 +1,27 @@
 <template>
-  <div class="category-control-panel">
-    <h1 class="control-title">Управление Категориями</h1>
-    <div v-if="isAdmin" class="new-category-section">
-      <input type="text" v-model="newCategoryName" placeholder="Новая категория" class="category-input">
-      <button @click="addCategory" class="button add-btn">Добавить</button>
+  <div class="category-management-interface">
+    <h1 class="interface-title">Управление Категориями</h1>
+    <div v-if="isAdmin" class="category-addition-area">
+      <input type="text" v-model="newCategoryName" placeholder="Название категории" class="input-style">
+      <button @click="addCategory" class="btn-style add-category-btn">Добавить Категорию</button>
     </div>
-    <div class="categories-grid">
-      <div v-for="category in categories" :key="category.id" class="category-box">
-        <h2>{{ category.name }}</h2>
-        <div v-if="isAdmin" class="category-actions">
-          <button @click="startEditCategory(category)" class="button edit-btn">Изменить</button>
-          <button @click="deleteCategory(category.id)" class="button delete-btn">Удалить</button>
+    <div class="category-display-grid">
+      <div v-for="category in categories" :key="category.id" class="category-card">
+        <h3>{{ category.name }}</h3>
+        <div v-if="isAdmin" class="card-actions">
+          <button @click="startEditCategory(category)" class="btn-style edit-category-btn">Изменить</button>
+          <button @click="deleteCategory(category.id)" class="btn-style delete-category-btn">Удалить</button>
         </div>
-        <div v-if="selectedCategory === category.id" class="edit-category">
-          <input type="text" v-model="selectedCategory.name" class="category-input">
-          <button @click="confirmEditCategory" class="button save-btn">Сохранить</button>
-          <button @click="cancelEditCategory" class="button cancel-btn">Отмена</button>
+        <div v-if="selectedCategory === category.id" class="category-editing-area">
+          <input type="text" v-model="selectedCategory.name" class="input-style">
+          <button @click="confirmEditCategory" class="btn-style confirm-edit-btn">Сохранить</button>
+          <button @click="cancelEditCategory" class="btn-style cancel-edit-btn">Отмена</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 
   
   <script>
@@ -109,36 +110,36 @@
   };
   </script>
   <style>
-  .category-control-panel {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 50px;
-    background: #e8eaf6;
-    border-radius: 25px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  .category-management-interface {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
   
-  .control-title {
-    font-size: 32px;
-    margin-bottom: 40px;
-    color: #3f51b5;
-  }
-  
-  .new-category-section {
-    display: flex;
-    gap: 20px;
+  .interface-title {
+    color: #333;
+    font-size: 26px;
     margin-bottom: 30px;
   }
   
-  .category-input {
+  .category-addition-area {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .input-style {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #c5cae9;
+    border: 1px solid #ddd;
     flex-grow: 1;
   }
   
-  .button {
+  .btn-style {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -147,37 +148,38 @@
     color: white;
   }
   
-  .add-btn { background-color: #9fa8da; }
-  .edit-btn { background-color: #7986cb; }
-  .delete-btn { background-color: #5c6bc0; }
-  .save-btn { background-color: #3f51b5; }
-  .cancel-btn { background-color: #303f9f; }
+  .add-category-btn { background-color: #4caf50; }
+  .edit-category-btn { background-color: #ff9800; }
+  .delete-category-btn { background-color: #f44336; }
+  .confirm-edit-btn { background-color: #4caf50; }
+  .cancel-edit-btn { background-color: #9e9e9e; }
   
-  .categories-grid {
+  .category-display-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
   }
   
-  .category-box {
-    background: #fff;
+  .category-card {
+    background-color: white;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
-  .category-actions {
+  .card-actions {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-top: 15px;
   }
   
-  .edit-category {
+  .category-editing-area {
     margin-top: 20px;
     display: flex;
-    gap: 10px;
     flex-direction: column;
+    gap: 10px;
   }
   </style>
   

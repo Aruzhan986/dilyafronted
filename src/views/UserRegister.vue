@@ -53,25 +53,25 @@ export default {
 
 <style>
 .signup-page {
-  max-width: 400px;
-  margin: auto;
-  padding: 40px;
-  background: #f3f4f6;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 50px;
+  background: linear-gradient(145deg, #81c784, #66bb6a); 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+  color: #fff; 
 }
 
 .signup-title {
   text-align: center;
-  font-size: 22px;
-  color: #333;
-  margin-bottom: 25px;
+  font-size: 26px; 
+  margin-bottom: 30px;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px; 
 }
 
 .input-group {
@@ -80,34 +80,32 @@ export default {
 
 .input-field {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  padding: 12px; 
+  border: 2px solid #fff; 
+  border-radius: 8px; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  font-size: 16px;
+  color: #333; 
 }
 
 .input-label {
   position: absolute;
-  top: -10px;
-  left: 10px;
-  background: #f3f4f6;
-  padding: 0 5px;
-  font-size: 12px;
-  color: #333;
+  top: -12px; 
+  left: 15px; 
+  background: none; 
+  font-size: 14px; 
+  color: #fff; 
 }
 
 .register-button {
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 15px; 
+  background-color: #2e7d32; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
 .register-button:hover {
-  background-color: #388e3c;
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px #1b5e20; 
 }
 </style>
 

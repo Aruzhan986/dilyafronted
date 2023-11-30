@@ -129,93 +129,82 @@
   },
   };
   </script>
-<style scoped>
+<style>
 .product-management-interface {
-  max-width: 800px;
+  max-width: 850px; 
   margin: auto;
-  padding: 40px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding: 50px; 
+  background: linear-gradient(145deg, #e1bee7, #ce93d8); 
+  border-radius: 25px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .management-title {
-  color: #37474f;
-  font-size: 26px;
-  margin-bottom: 30px;
+  color: #6a1b9a;
+  font-size: 28px; 
+  margin-bottom: 35px; 
 }
 
 .product-creation-area {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.input-group, .select-group {
+  display: flex;
+  flex-wrap: wrap; 
   gap: 15px;
-  margin-bottom: 30px;
-}
-
-.input-group {
-  display: flex;
-  gap: 10px;
-}
-
-.select-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  justify-content: center;
 }
 
 .product-input, .product-select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #cfd8dc;
+  padding: 12px; 
+  border-radius: 10px;
+  border: 2px solid #ce93d8; 
   flex-grow: 1;
+  background-color: #fff; 
 }
 
 .add-product-btn {
-  padding: 10px 20px;
-  background-color: #42a5f5;
-  color: white;
+  background-color: #ab47bc; 
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .products-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px; 
 }
 
 .product-card {
-  background: #eceff1;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background: #f3e5f5; 
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .card-details h3 {
-  color: #3949ab;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .card-actions {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
-  margin-top: 15px;
 }
 
 .edit-product-btn, .delete-product-btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
+  padding: 10px 18px;
 }
 
-.edit-product-btn { background-color: #ff9800; }
-.delete-product-btn { background-color: #f44336; }
+.edit-product-btn { background-color: #ba68c8; }
+.delete-product-btn { background-color: #9c27b0; }
 
 @media (max-width: 600px) {
   .input-group, .select-group {
@@ -226,6 +215,7 @@
   }
 }
 </style>
+
 
   
   

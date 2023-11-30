@@ -1,6 +1,6 @@
 <template>
   <div class="category-overview-page">
-    <h1 class="overview-title">Просмотр Категорий</h1>
+    <h1 class="overview-title">Просмотр</h1>
     <div class="category-grid">
       <div v-for="category in categories" :key="category.id" class="category-tile">
         <div class="category-content">
@@ -34,46 +34,47 @@
   </script>
   
   <style scoped>
-.category-overview-page {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px;
-  background: #f7f7f7;
-  border-radius: 25px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  text-align: center;
-}
-
-.overview-title {
-  color: #5c6bc0;
-  font-size: 28px;
-  margin-bottom: 35px;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
-}
-
-.category-tile {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.category-heading {
-  font-size: 18px;
-  color: #424242;
-  font-weight: 600;
-}
-</style>
+  .category-overview-page {
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 50px;
+    background: linear-gradient(to right, #8e9eab, #eef2f3); 
+    border-radius: 30px; 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+  }
+  
+  .overview-title {
+    color: #3f51b5; 
+    font-size: 32px; 
+    margin-bottom: 40px; 
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 30px;
+  }
+  
+  .category-tile {
+    background: #fff;
+    padding: 25px; 
+    border-radius: 20px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-tile:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); 
+  }
+  
+  .category-heading {
+    font-size: 20px; 
+    color: #1a237e; 
+    font-weight: 700;
+  }
+  </style>
+  
 
   

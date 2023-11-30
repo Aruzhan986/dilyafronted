@@ -1,15 +1,14 @@
 <template>
-  <div class="admin-dashboard-container">
-    <h1 class="dashboard-heading">Панель Управления</h1>
-    <div class="dashboard-menu">
-      <div @click="goToPage('/category')" class="menu-item">Категории</div>
-      <div @click="goToPage('/adminproduct')" class="menu-item">Продукция</div>
-      <div @click="goToPage('/adminclient')" class="menu-item">Клиенты</div>
-      <div @click="goToPage('/adminorder')" class="menu-item">Заказы</div>
+  <div class="admin-panel">
+    <h1 class="panel-title">Административная Панель</h1>
+    <div class="panel-options">
+      <div @click="goToPage('/category')" class="option-item">Категории</div>
+      <div @click="goToPage('/adminproduct')" class="option-item">Продукты</div>
+      <div @click="goToPage('/adminclient')" class="option-item">Клиенты</div>
+      <div @click="goToPage('/adminorder')" class="option-item">Заказы</div>
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -22,46 +21,44 @@ export default {
 </script>
 
 <style>
-.admin-dashboard-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 50px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  border-radius: 25px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
-
-.dashboard-heading {
+.admin-panel {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
 }
 
-.dashboard-menu {
+.panel-title {
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.panel-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.menu-item {
-  padding: 25px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.option-item {
+  padding: 20px;
+  background-color: #e3f2fd;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  font-size: 18px;
 }
 
-.menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
+.option-item:hover {
+  transform: translateY(-5px);
+  background-color: #bbdefb;
 }
 </style>
+
 
 
 

@@ -48,26 +48,26 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .orders-dashboard {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px;
-  background: #eceff1;
-  border-radius: 25px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  max-width: 1100px; 
+  margin: 50px auto;
+  padding: 50px; 
+  background: linear-gradient(145deg, #81d4fa, #4fc3f7); 
+  border-radius: 30px; 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
   text-align: center;
+  color: #fff; 
 }
 
 .dashboard-title {
-  color: #1a237e;
-  font-size: 30px;
-  margin-bottom: 35px;
+  font-size: 32px; 
+  margin-bottom: 40px; 
 }
 
 .orders-content {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(120px, 1fr)); 
   text-align: center;
   overflow-x: auto;
 }
@@ -77,27 +77,26 @@ export default {
 }
 
 .header-cell, .order-cell {
-  padding: 15px;
-  border: 1px solid #b0bec5;
+  padding: 18px; 
+  border: 2px solid #fff; 
 }
 
 .table-header .header-cell {
-  background-color: #3949ab;
-  color: white;
-  font-weight: bold;
+  background-color: #0288d1; 
+  font-weight: 600; 
 }
 
 .table-body .order-cell {
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.8); 
 }
 
 @media screen and (max-width: 768px) {
   .orders-content {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
   }
 
   .header-cell, .order-cell {
-    padding: 10px;
+    padding: 12px;
   }
 }
 </style>

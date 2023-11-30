@@ -1,21 +1,20 @@
 <template>
-  <div class="login-area">
-    <h1 class="login-title">Вход в Систему</h1>
+  <div class="login-interface">
+    <h1 class="interface-title">Вход</h1>
     <form @submit.prevent="login" class="login-form">
-      <div class="input-field">
-        <label for="email">Email</label>
-        <input id="email" v-model="form.email" type="email" required class="text-input">
+      <div class="input-area">
+        <input id="email" v-model="form.email" type="email" required placeholder="Электронная почта" class="input-box">
+        <label for="email" class="input-label">Email</label>
       </div>
-      <div class="input-field">
-        <label for="password">Пароль</label>
-        <input id="password" v-model="form.password" type="password" required class="text-input">
+      <div class="input-area">
+        <input id="password" v-model="form.password" type="password" required placeholder="Пароль" class="input-box">
+        <label for="password" class="input-label">Пароль</label>
       </div>
-      <button type="submit" class="login-btn">Войти</button>
+      <button type="submit" class="login-button">Вход</button>
     </form>
-    <button @click="goToRegistration" class="register-link">Новый пользователь? Регистрация</button>
+    <button @click="goToRegistration" class="register-button">Регистрация</button>
   </div>
 </template>
-
 
 
 <script>
@@ -54,20 +53,20 @@ export default {
 }
 </script>
 
-<style>
-.login-area {
-  max-width: 450px;
-  margin: 50px auto;
-  padding: 30px;
-  background: linear-gradient(to right top, #6dd5ed, #2196f3);
+<style scoped>
+.login-interface {
+  max-width: 350px;
+  margin: auto;
+  padding: 40px;
+  background: #eceff1;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.login-title {
-  text-align: center;
-  font-size: 28px;
+.interface-title {
+  color: #455a64;
+  font-size: 26px;
   margin-bottom: 25px;
 }
 
@@ -77,56 +76,55 @@ export default {
   gap: 15px;
 }
 
-.input-field {
-  display: flex;
-  flex-direction: column;
+.input-area {
+  position: relative;
 }
 
-.label {
-  margin-bottom: 5px;
-}
-
-.text-input {
+.input-box {
+  width: 100%;
   padding: 12px;
-  border: 2px solid #fff;
+  border: 1px solid #cfd8dc;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: #333;
+  background-color: #fff;
 }
 
-.text-input:focus {
-  background-color: #fff;
-  color: #333;
+.input-label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: #eceff1;
+  padding: 0 4px;
+  font-size: 14px;
+  color: #455a64;
 }
 
-.login-btn {
-  padding: 15px;
-  background-color: #fff;
-  color: #2196f3;
+.login-button {
+  padding: 12px 0;
+  background-color: #1e88e5;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
-.login-btn:hover {
-  background-color: #f8f9fa;
-  color: #0d47a1;
+.login-button:hover {
+  background-color: #1565c0;
 }
 
-.register-link {
+.register-button {
   margin-top: 15px;
-  background: none;
-  color: #fff;
-  border: 2px solid #fff;
+  background-color: transparent;
+  color: #1e88e5;
+  border: 1px solid #1e88e5;
   border-radius: 8px;
-  padding: 8px 20px;
+  padding: 8px 0;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.register-link:hover {
-  background-color: #fff;
-  color: #2196f3;
+.register-button:hover {
+  background-color: #1e88e5;
+  color: white;
 }
 </style>
