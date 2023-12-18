@@ -31,22 +31,29 @@ export default {
   },
   methods: {
     async login() {
-      const response = await authService.login(this.form);
-      if (response.success) {
+    const response = await authService.login(this.form);
+    if (response.success) {
         const userRole = localStorage.getItem('roles');
-        if (userRole === 'Admin') { 
-            this.$router.push('/adminproduct'); 
-        } else {
-            this.$router.push('/usercategory'); 
+
+        switch (userRole) {
+            case 'Admin':
+                this.$router.push('/admincon');
+                break;
+            case 'Moderator':
+                this.$router.push('/moderator');
+                break;
+            default:
+                this.$router.push('/item');
         }
-      } else {
+    } else {
         console.error("An error occurred during login.", response.errors);
-      }
-    },
-    goToRegistration() {
-      this.$router.push('/register'); 
     }
+},
+  goToRegistration() {
+    this.$router.push('/register'); 
   }
+}
+
 }
 </script>
 
@@ -54,24 +61,25 @@ export default {
 .custom-login-interface {
   max-width: 400px;
   margin: auto;
-  padding: 50px;
-  background: #2c3e50;
+  padding: 40px;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #fff;
+  color: #333; 
 }
 
 .custom-interface-title {
-  color: #fff;
-  font-size: 36px;
-  margin-bottom: 30px;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .custom-login-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 }
 
 .custom-input-area {
@@ -80,56 +88,49 @@ export default {
 
 .custom-input-box {
   width: 100%;
-  padding: 20px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  background-color: transparent;
-  color: #fff;
-  transition: border-color 0.3s;
-}
-
-.custom-input-box:focus {
-  border-color: #3498db;
-  outline: none;
+  padding: 12px;
+  border: 1px solid #ddd; 
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  color: #333; 
 }
 
 .custom-input-label {
   position: absolute;
-  top: -15px;
+  top: -12px;
   left: 10px;
-  background-color: #2c3e50;
+  background-color: #fff;
   padding: 0 5px;
-  font-size: 16px;
-  color: #fff;
+  font-size: 14px;
+  color: #333;
+}
+
+.custom-login-button, .custom-register-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px 0;
 }
 
 .custom-login-button {
-  padding: 20px 0;
-  background-color: #3498db;
+  background-color: #007bff;
   color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .custom-login-button:hover {
-  background-color: #2980b9;
+  background-color: #0056b3;
 }
 
 .custom-register-button {
-  margin-top: 30px;
-  background-color: transparent;
-  color: #3498db;
-  border: 2px solid #3498db;
-  border-radius: 8px;
-  padding: 15px 0;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: #f8f8f8;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
 
 .custom-register-button:hover {
-  background-color: #3498db;
+  background-color: #007bff;
   color: #fff;
 }
 </style>

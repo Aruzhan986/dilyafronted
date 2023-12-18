@@ -19,9 +19,11 @@ const authService = {
         }
     },
     logout() {
-        localStorage.clear();
-        router.push({name: 'login'});
-    },
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('user');
+        localStorage.removeItem('roles');
+        router.push({ name: 'LoginView' }); 
+      },
     getToken() {
         return localStorage.getItem('authToken');
     },
@@ -31,6 +33,7 @@ const authService = {
     isLoggedIn() {
         return !!this.getToken();
     }
+    
 }
 
 export default authService;
